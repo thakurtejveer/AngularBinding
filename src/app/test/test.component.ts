@@ -20,6 +20,12 @@ import { Component, OnInit } from '@angular/core';
   <h2 [style.color]="answerColor">Yess!!</h2>
   <h2 [ngStyle]="hurra">Congratulations!!!, Call from AFSB Gandhinagar</h2>
 
+  <button (click)="onClick($event)">Greet</button>
+  {{greetings}}
+
+  <button (click)="greetings='Welcome Tejveer'">Greeting</button>
+
+
 
 
   `,
@@ -57,6 +63,11 @@ export class TestComponent implements OnInit {
     color:"green",
     fontStyle:"italic"
 
+  }
+  public greetings="";
+  public onClick(event){
+    console.log(event)
+    this.greetings=event.type;
   }
 
   constructor() { }
