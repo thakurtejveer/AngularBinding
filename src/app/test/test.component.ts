@@ -25,6 +25,13 @@ import { Component, OnInit } from '@angular/core';
 
   <button (click)="greetings='Welcome Tejveer'">Greeting</button>
 
+  <input #myInput type="text">
+  <button (click)="myMessage(myInput.value)">Log</button>
+  <br>
+  <br>
+  <input #typeInput type="text">
+  <button (click)="myMessage(typeInput)">Log</button>
+
 
 
 
@@ -68,6 +75,9 @@ export class TestComponent implements OnInit {
   public onClick(event){
     console.log(event)
     this.greetings=event.type;
+  }
+  public myMessage(value){
+    console.log(value);
   }
 
   constructor() { }
