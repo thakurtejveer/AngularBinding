@@ -14,7 +14,12 @@ import { Component, OnInit } from '@angular/core';
   <input [id]="myId" type="text" value="tezaaa">
   <input [disabled]="isDisabled" id ="{{myId}}" type="text" value="singh">
   <input bind-disabled="isDisabled" id ="{{myId}}" type="text" value="singh">
-  <h2 [ngClass]="messageClasses" >Hey there, I won the race.. hurraaaaah</h2>
+  <h2 [ngClass]="'messageClasses'" >Hey there, I won the race.. hurraaaaah</h2>
+  <h2 [style.color]="'orange'">Now, Next goal is Indian Air Force</h2>
+  <h2 [style.color]="hashError ?'green' :'red'">Are you excited?</h2>
+  <h2 [style.color]="answerColor">Yess!!</h2>
+  <h2 [ngStyle]="hurra">Congratulations!!!, Call from AFSB Gandhinagar</h2>
+
 
 
   `,
@@ -29,6 +34,7 @@ import { Component, OnInit } from '@angular/core';
     font-style: italic;
     color:blue;
   }
+
   `
 
   ]
@@ -38,12 +44,18 @@ export class TestComponent implements OnInit {
   public myId="testId";
   public isDisabled = false;
   public successClass="text-success";
-  public hashError=false;
+  public hashError=true;
   public isSpecial=true;
   public messageClasses ={
     "text-special" :this.isSpecial,
     "text-success":!this.hashError,
     "text-danger" :!this.hashError
+
+  }
+  public answerColor="blue";
+  public hurra ={
+    color:"green",
+    fontStyle:"italic"
 
   }
 
